@@ -2,6 +2,7 @@ package baekjoon.LittlePrince;
 
 /*
  출발점과 도착점을 둘러싸고 있는 원의 개수를 구해야 한다고 생각을 하였음.
+ 하지만 같은 원에 둘다 존재한다면 result를 ++해줄 필요가 없다는 것이 틀리고 나서 생각하게 됨.
  */
 
 import java.util.Scanner;
@@ -25,10 +26,10 @@ public class Main {
                 planets[j] = new Planet(
                         new Point(Integer.parseInt(input[0]), Integer.parseInt(input[1])), Integer.parseInt(input[2])
                 );
-                if (planets[j].isInside(depart)) {
-                    ++result;
+                if (planets[j].isInside(depart) && planets[j].isInside(arrival)) {
+                    continue;
                 }
-                if (planets[j].isInside(arrival)) {
+                if (planets[j].isInside(depart) || planets[j].isInside(arrival)) {
                     ++result;
                 }
             }
