@@ -1,4 +1,4 @@
-package baekjoon.Turret;
+package baekjoon.기하1.터렛1002;
 
 import java.util.Scanner;
 
