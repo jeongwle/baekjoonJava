@@ -1,4 +1,4 @@
-package baekjoon.기하1.터렛1002;
+package baekjoon.십삼단계_기하1.터렛1002;
 
 import java.util.Scanner;
 

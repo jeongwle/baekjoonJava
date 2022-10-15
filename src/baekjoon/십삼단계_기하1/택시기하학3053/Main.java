@@ -1,4 +1,4 @@
-package baekjoon.기하1.택시기하학3053;
+package baekjoon.십삼단계_기하1.택시기하학3053;
 
 import java.io.BufferedReader;
 import java.io.IOException;

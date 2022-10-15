@@ -1,4 +1,4 @@
-package baekjoon.기하1.직각삼각형4153;
+package baekjoon.십삼단계_기하1.직각삼각형4153;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package baekjoon.기하1.직사각형에서탈출1085;
+package baekjoon.십삼단계_기하1.직사각형에서탈출1085;
 
 import java.io.BufferedReader;
 import java.io.IOException;

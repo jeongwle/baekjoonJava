@@ -1,4 +1,4 @@
-package baekjoon.기하1.네번째점3009;
+package baekjoon.십삼단계_기하1.네번째점3009;
 
 import java.io.BufferedReader;
 import java.io.IOException;
