@@ -1,4 +1,4 @@
-package baekjoon.십삼단계_기하1.십사단계_정수론및조합론.배수와약수5086;
+package baekjoon.십사단계_정수론및조합론.배수와약수5086;
 
 import java.io.BufferedReader;
 import java.io.IOException;
