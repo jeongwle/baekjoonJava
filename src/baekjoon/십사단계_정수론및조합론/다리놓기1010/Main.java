@@ -1,4 +1,4 @@
-package baekjoon.다리놓기;
+package baekjoon.십사단계_정수론및조합론.다리놓기1010;
 
 /*
 왼쪽 다리 지을 수 있는 포인트 N
