@@ -1,4 +1,4 @@
-package baekjoon.삼단계_반복문.X보다작은수;
+package baekjoon.사단계_일차원배열.X보다작은수;
 /*
 백준 10871
  */
