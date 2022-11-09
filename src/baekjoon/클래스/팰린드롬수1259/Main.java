@@ -1,4 +1,4 @@
-package baekjoon.팰린드롬수1259;
+package baekjoon.클래스.팰린드롬수1259;
 
 import java.io.BufferedReader;
 import java.io.IOException;

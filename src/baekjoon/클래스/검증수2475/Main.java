@@ -1,4 +1,4 @@
-package baekjoon.검증수2475;
+package baekjoon.클래스.검증수2475;
 
 import java.io.BufferedReader;
 import java.io.IOException;

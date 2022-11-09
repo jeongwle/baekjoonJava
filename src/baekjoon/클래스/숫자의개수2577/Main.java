@@ -1,4 +1,4 @@
-package baekjoon.숫자의개수2577;
+package baekjoon.클래스.숫자의개수2577;
 
 import java.io.BufferedReader;
 import java.io.IOException;

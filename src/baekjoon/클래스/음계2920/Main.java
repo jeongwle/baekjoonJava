@@ -1,4 +1,4 @@
-package baekjoon.음계2920;
+package baekjoon.클래스.음계2920;
 
 import java.io.BufferedReader;
 import java.io.IOException;
