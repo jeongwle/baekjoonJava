@@ -7,7 +7,6 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-    private static int[] arr;
     private static int[][] dp;
     private static final int VALUE = 0;
     private static final int LEFT = 1;
@@ -17,7 +16,7 @@ public class Main {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
         int N = Integer.parseInt(bf.readLine());
-        arr = new int[N];
+        int[] arr = new int[N];
         dp = new int[N][3];
 
         StringTokenizer st = new StringTokenizer(bf.readLine(), " ");
