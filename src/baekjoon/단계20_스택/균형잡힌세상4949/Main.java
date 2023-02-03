@@ -1,4 +1,4 @@
-package baekjoon.클래스.균형잡힌세상4949;
+package baekjoon.단계20_스택.균형잡힌세상4949;
 
 import java.io.BufferedReader;
 import java.io.IOException;

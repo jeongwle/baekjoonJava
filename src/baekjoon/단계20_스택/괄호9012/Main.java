@@ -1,4 +1,4 @@
-package baekjoon.클래스.괄호9012;
+package baekjoon.단계20_스택.괄호9012;
 
 import java.io.BufferedReader;
 import java.io.IOException;
