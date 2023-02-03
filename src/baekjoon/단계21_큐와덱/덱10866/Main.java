@@ -1,4 +1,4 @@
-package baekjoon.클래스.덱10866;
+package baekjoon.단계21_큐와덱.덱10866;
 
 import java.io.BufferedReader;
 import java.io.IOException;

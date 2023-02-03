@@ -1,4 +1,4 @@
-package baekjoon.클래스.카드2164;
+package baekjoon.단계21_큐와덱.카드2164;
 
 import java.io.BufferedReader;
 import java.io.IOException;

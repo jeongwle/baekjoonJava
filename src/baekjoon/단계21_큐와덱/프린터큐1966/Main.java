@@ -1,4 +1,4 @@
-package baekjoon.클래스.프린터큐1966;
+package baekjoon.단계21_큐와덱.프린터큐1966;
 
 import java.io.BufferedReader;
 import java.io.IOException;
