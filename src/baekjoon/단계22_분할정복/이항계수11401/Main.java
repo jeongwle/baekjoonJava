@@ -16,22 +16,8 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
 
-        long factorialN = 1;
-        for (int i = 1; i <= N; i++) {
-            factorialN *= i;
-            factorialN %= MOD;
-        }
-
-        long factorialK = 1;
-        for (int i = 1; i <= K; i++) {
-            factorialK *= i;
-            factorialK %= MOD;
-        }
-
-        for (int i = 1; i <= N - K; i++) {
-            factorialK *= i;
-            factorialK %= MOD;
-        }
+        long factorialN = factorial(N);
+        long factorialK = factorial(K) * factorial(N - K) % MOD;
         System.out.println((factorialN * modInverse(factorialK, MOD - 2)) % MOD);
     }
 
@@ -45,5 +31,14 @@ public class Main {
             return (temp * temp % MOD) * K % MOD;
         }
         return temp * temp % MOD;
+    }
+
+    private static long factorial(int N) {
+        long result = 1;
+        for (int i = 1; i <= N; i++) {
+            result *= i;
+            result %= MOD;
+        }
+        return result;
     }
 }
