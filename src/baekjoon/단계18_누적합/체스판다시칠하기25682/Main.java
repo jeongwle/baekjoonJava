@@ -11,10 +11,6 @@ public class Main {
     private static final int BLACK = 0;
     private static final int WHITE = 1;
     private static int[][] chessboard;
-    private static int[][] blackBoard;
-    private static int[][] whiteBoard;
-    private static int[] blackSum;
-    private static int[] whiteSum;
 
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
@@ -25,8 +21,6 @@ public class Main {
         int K = Integer.parseInt(st.nextToken());
 
         chessboard = new int[height][width];
-        blackBoard = new int[height][width];
-        whiteBoard = new int[height][width];
         for (int i = 0; i < chessboard.length; i++) {
             String input = bf.readLine();
             for (int j = 0; j < input.length(); j++) {
@@ -37,72 +31,46 @@ public class Main {
                 chessboard[i][j] = WHITE;
             }
         }
-        setBoard();
-        whiteSum = new int[height * width];
-        blackSum = new int[height * width];
-        setSum();
-        System.out.println(Math.min(getSum(blackSum, K), getSum(whiteSum, K)));
+        System.out.println(
+                Math.min(getAnswer(BLACK, height, width, K), getAnswer(WHITE, height, width, K)));
     }
 
-    private static int getSum(int[] sum, int K) {
-        int min = Integer.MAX_VALUE;
-        for (int row = 0; row <= chessboard.length - K; row++) {
-            for (int col = 0; col <= chessboard[row].length - K; col++) {
-                int minCandidate = 0;
-                for (int k = 0; k < K; k++) {
-                    int plusIndex = (K - 1 + col) + (k + row) * (chessboard[row].length);
-                    minCandidate += sum[plusIndex];
-                    int minusIndex = plusIndex - K;
-                    if (minusIndex < 0) {
-                        continue;
+    private static int getAnswer(int startColor, int height, int width, int K) {
+        int[][] prefixSum = new int[height + 1][width + 1];
+        boolean isRightColor;
+        for (int i = 0; i < chessboard.length; i++) {
+            for (int j = 0; j < chessboard[i].length; j++) {
+                if (startColor == BLACK) {
+                    if ((i + j) % 2 == 0) {
+                        isRightColor = (chessboard[i][j] == BLACK);
+                    } else {
+                        isRightColor = (chessboard[i][j] == WHITE);
                     }
-                    minCandidate -= sum[minusIndex];
+                } else {
+                    if ((i + j) % 2 == 0) {
+                        isRightColor = (chessboard[i][j] == WHITE);
+                    } else {
+                        isRightColor = (chessboard[i][j] == BLACK);
+                    }
                 }
-                min = Math.min(min, minCandidate);
+                int value = 1;
+                if (isRightColor) {
+                    value = 0;
+                }
+                prefixSum[i + 1][j + 1] =
+                        prefixSum[i][j + 1] + prefixSum[i + 1][j] - prefixSum[i][j] + value;
             }
         }
-        return min;
-    }
 
-    private static void setSum() {
-        setValue(blackSum, blackBoard);
-        setValue(whiteSum, whiteBoard);
-    }
-
-    private static void setValue(int[] sum, int[][] board) {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                int index = i * board[i].length + j;
-                if (index != 0) {
-                    sum[index] += sum[index - 1];
-                }
-                if (board[i][j] != chessboard[i][j]) {
-                    sum[i * board[i].length + j]++;
-                }
+        int answer = Integer.MAX_VALUE;
+        for (int i = 1; i <= height - K + 1; i++) {
+            for (int j = 1; j <= width - K + 1; j++) {
+                answer = Math.min(answer,
+                        prefixSum[i + K - 1][j + K - 1] - prefixSum[i + K - 1][j - 1] - prefixSum[i
+                                - 1][j + K - 1] + prefixSum[i - 1][j - 1]
+                );
             }
         }
-    }
-
-    private static void setBoard() {
-        setColor(blackBoard, BLACK, WHITE);
-        setColor(whiteBoard, WHITE, BLACK);
-    }
-
-    private static void setColor(int[][] board, int colorOne, int colorTwo) {
-        for (int i = 0; i < board.length; i++) {
-            if (i % 2 == 0) {
-                board[i][0] = colorOne;
-                continue;
-            }
-            board[i][0] = colorTwo;
-        }
-
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 1; j < board[i].length; j++) {
-                if (board[i][j - 1] == BLACK) {
-                    board[i][j] = WHITE;
-                }
-            }
-        }
+        return answer;
     }
 }
